@@ -1,7 +1,9 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * Created by LaunchCode
@@ -120,6 +122,20 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+
+        if (someJobs.isEmpty()) System.out.print("No Results");
+        else {
+            int i = 1;
+            for (HashMap<String, String> singleValues : someJobs) {
+                String[] keys = singleValues.keySet().toArray(new String[0]);
+                String[] values = singleValues.values().toArray(new String[0]);
+                System.out.println(i == 1 ? "\n*****" : "*****");
+                for (int n = 0; n < keys.length; n++) {
+                    System.out.println(keys[n] + ": " + values[n]);
+                }
+                System.out.println(i < someJobs.size() ? "*****\n" : "*****");
+                i++;
+            }
+        }
     }
 }
